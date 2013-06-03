@@ -1,0 +1,23 @@
+#
+# Java files
+#
+target
+*.class
+#
+# Eclipse files
+#
+.classpath
+.project
+.settings
+jcoverage.ser
+#
+# Backup files
+#
+*~
+\#*\#
+#
+# Mac files
+#
+.DS_Store
+._*
+
