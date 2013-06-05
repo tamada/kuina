@@ -13,10 +13,10 @@ import java.util.jar.JarOutputStream;
 
 import org.bitbucket.javamug.Entry;
 
-public class JarFileDataSink extends AbstractDataSink {
+class JarFileDataSink extends AbstractDataSink {
     private JarOutputStream out;
 
-    public JarFileDataSink(String fileName){
+    JarFileDataSink(String fileName){
         super(Type.JAR_FILE, fileName);
     }
 
