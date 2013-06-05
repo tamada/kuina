@@ -8,10 +8,23 @@ public interface DataSink extends AutoCloseable {
         CLASS_FILE, JAR_FILE, DIRECTORY, MULTIPLE;
     };
 
+    /**
+     * 
+     * @return 
+     * @throws SinkException
+     */
     ClassLoader getClassLoader() throws SinkException;
 
+    /**
+     * returns the instance type.
+     * @return instance type
+     */
     Type getType();
 
+    /**
+     * returns the base path of this instance
+     * @return base path.
+     */
     String getBase();
 
     void putEntry(Entry entry) throws SinkException;

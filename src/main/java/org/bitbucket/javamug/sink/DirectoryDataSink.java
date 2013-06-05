@@ -9,10 +9,10 @@ import java.nio.file.Path;
 
 import org.bitbucket.javamug.Entry;
 
-public class DirectoryDataSink extends AbstractDataSink {
+class DirectoryDataSink extends AbstractDataSink {
     private Path base;
 
-    public DirectoryDataSink(String target){
+    DirectoryDataSink(String target){
         super(DataSink.Type.DIRECTORY, target);
         base = FileSystems.getDefault().getPath(target);
     }
