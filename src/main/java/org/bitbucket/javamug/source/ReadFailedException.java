@@ -1,5 +1,10 @@
 package org.bitbucket.javamug.source;
 
+/**
+ * Exception class in read data from data source.
+ * 
+ * @author Haruaki Tamada
+ */
 public class ReadFailedException extends SourceException {
     private static final long serialVersionUID = 758407980235297661L;
 

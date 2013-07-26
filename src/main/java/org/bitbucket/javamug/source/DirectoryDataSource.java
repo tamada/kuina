@@ -18,6 +18,11 @@ import org.bitbucket.javamug.ClassEntry;
 import org.bitbucket.javamug.Entry;
 import org.bitbucket.javamug.ResourceEntry;
 
+/**
+ * Concrete class of data source for reading from directories.
+ * 
+ * @author Haruaki Tamada
+ */
 class DirectoryDataSource extends AbstractDataSource {
     private String dirName;
     private Path path;

@@ -5,6 +5,11 @@ import java.io.InputStream;
 
 import org.bitbucket.javamug.source.DataSource;
 
+/**
+ * Abstract class of {@link Entry <code>Entry</code>} class.
+ * 
+ * @author Haruaki Tamada
+ */
 public abstract class AbstractEntry implements Entry {
     private DataSource source;
     private Type type;

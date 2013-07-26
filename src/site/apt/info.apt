@@ -1,0 +1,31 @@
+ ----
+ JavaMug: Extracting/Storing class files from/to some archives
+ ----
+ Haruaki Tamada
+ ----
+ 2013-07-25
+ ----
+
+{Information}
+
+* {Version History}
+
+** 1.0
+
+ First release, supports following features.
+
+ * Read classes from class files.
+
+ * Read classes from directories.
+
+ * Read classes from jar files.
+
+ * Read classes from war files.
+
+ * Write classes to class files.
+
+ * Write classes to directories.
+
+ * Write classes to jar files.
+
+ * Get class names from bytecode.
