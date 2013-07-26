@@ -7,6 +7,10 @@ import java.util.List;
 
 import org.bitbucket.javamug.Entry;
 
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 public class MultipleDataSink extends AbstractDataSink implements Iterable<DataSink> {
     public List<DataSink> sinkList = new ArrayList<DataSink>();
 

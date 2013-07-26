@@ -1,10 +1,13 @@
 package org.bitbucket.javamug.sink;
 
+import java.security.AccessController;
+import java.security.PrivilegedActionException;
+import java.security.PrivilegedExceptionAction;
+
 
 /**
  * 
  * @author Haruaki Tamada
- *
  */
 abstract class AbstractDataSink implements DataSink {
     private DataSink.Type type;
@@ -42,7 +45,15 @@ abstract class AbstractDataSink implements DataSink {
             throw new NotFilledEntriesException("remains entries. call close method.");
         }
         if(loader == null){
-            loader = buildClassLoader();
+            try {
+                loader = AccessController.doPrivileged(new PrivilegedExceptionAction<ClassLoader>(){
+                    public ClassLoader run() throws SinkException{
+                        return buildClassLoader();
+                    }
+                });
+            } catch (PrivilegedActionException e) {
+                throw (SinkException)e.getException();
+            }
         }
         return loader;
     }

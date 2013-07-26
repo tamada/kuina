@@ -1,0 +1,36 @@
+ ----
+ JavaMug: Extracting/Storing class files from/to some archives
+ ----
+ Haruaki Tamada
+ ----
+ 2013-07-25
+ ----
+
+{Usage}
+
+*{Overview}
+
+ This products has two interfaces, <<<DataSource>>> and
+<<<DataSink>>>.
+
+ <<<DataSource>>> represents a source for reading classes. Also,
+<<<DataSource>>> iterates <<<Entry>>> objects which shows entries of
+archive, such as a class file from a jar archive.
+
+ <<<DataSink>>> shows destination of <<<Entry>>> objects.  We put
+<<<Entry>>> objects into the <<<DataSink>>> object, and close the
+<<<DataSink>>> object, then the corresponding archive is built.
+ 
+*{Extract from Jar files}
+
+--------
+DataSource source = DataSourceBuilder.getBuilder().build(
+    "path to jar file"
+);
+for(Entry entry: source){
+    // some operation for each entry
+}
+--------
+
+ You can see, if you want to read classes from directory, war file,
+and class files, essential routine is completely the same.

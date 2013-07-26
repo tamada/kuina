@@ -17,6 +17,7 @@ import org.bitbucket.javamug.Entry;
 import org.bitbucket.javamug.ResourceEntry;
 
 /**
+ * Concrete class of data source for reading from jar files.
  *
  * @author Haruaki TAMADA
  */

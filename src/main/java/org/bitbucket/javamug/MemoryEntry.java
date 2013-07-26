@@ -7,6 +7,12 @@ import java.io.InputStream;
 import org.bitbucket.javamug.source.DataSource;
 import org.bitbucket.javamug.source.MemoryDataSource;
 
+/**
+ * Concrete class of {@link Entry <code>Entry</code>} class
+ * for having data in memories.
+ * 
+ * @author Haruaki Tamada
+ */
 class MemoryEntry implements Entry {
     private Type type;
     private String className;

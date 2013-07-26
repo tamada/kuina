@@ -13,6 +13,11 @@ import java.util.List;
 import org.bitbucket.javamug.ClassEntry;
 import org.bitbucket.javamug.Entry;
 
+/**
+ * Concrete class of data source for reading from a class file.
+ * 
+ * @author Haruaki Tamada
+ */
 class ClassFileDataSource extends AbstractDataSource {
     private Path path;
     private Entry entry;

@@ -16,6 +16,11 @@ import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
+/**
+ * This class is for extracting class name from Java bytecode.
+ * 
+ * @author Haruaki Tamada
+ */
 class ClassNameExtractVisitor extends ClassVisitor{
     private String className;
 

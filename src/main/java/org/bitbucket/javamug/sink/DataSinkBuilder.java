@@ -8,6 +8,10 @@ import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 public class DataSinkBuilder {
     private static final DataSinkBuilder builder = new DataSinkBuilder();
 
