@@ -6,7 +6,8 @@ package org.bitbucket.javamug;
  * 
  * Ordinary, this class is not used.
  * This class is used for building {@link Entry <code>Entry</code>} object
- * which is not included in a {@link DataSource <code>DataSource</code>} object.
+ * which is not included in a {@link org.bitbucket.javamug.source.DataSource
+ * <code>DataSource</code>} object.
  *
  * <pre> Entry entry = EntryBuilder.getBuilder().build(
  *   "resource name",

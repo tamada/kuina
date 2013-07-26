@@ -3,9 +3,7 @@
 <project name="${project.name}">
   <bannerLeft>
     <name>${project.name}</name>
-<!--
     <src>./images/javamuglogo.png</src>
--->
     <alt>JavaMug: Extracting/Storing class files from/to some archives</alt>
   </bannerLeft>
 

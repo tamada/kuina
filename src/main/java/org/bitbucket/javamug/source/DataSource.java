@@ -16,7 +16,7 @@ import org.bitbucket.javamug.Entry;
  */
 public interface DataSource extends Iterable<Entry> {
     /**
-     * 
+     * Type of data source.
      * @author Haruaki Tamada
      */
     public static enum Type {
@@ -28,6 +28,10 @@ public interface DataSource extends Iterable<Entry> {
             this.extension = ext;
         }
 
+        /**
+         * returns the default file extension of this type.
+         * @return default file extension.
+         */
         String getExtension(){
             return extension;
         }
