@@ -2,6 +2,11 @@ package org.bitbucket.javamug.source;
 
 import org.bitbucket.javamug.MugException;
 
+/**
+ * Exception class for data source.
+ * 
+ * @author Haruaki Tamada
+ */
 public class SourceException extends MugException {
     private static final long serialVersionUID = -4217877604307902464L;
 

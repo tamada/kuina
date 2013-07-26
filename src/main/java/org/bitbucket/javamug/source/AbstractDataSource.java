@@ -1,6 +1,10 @@
 package org.bitbucket.javamug.source;
 
-
+/**
+ * Abstract class of data source.
+ * 
+ * @author Haruaki Tamada
+ */
 abstract class AbstractDataSource implements DataSource {
     private Type type;
 
@@ -8,6 +12,10 @@ abstract class AbstractDataSource implements DataSource {
         this.type = type;
     }
 
+    /**
+     * returns type of this data source.
+     * @return type
+     */
     public final Type getType(){
         return type;
     }

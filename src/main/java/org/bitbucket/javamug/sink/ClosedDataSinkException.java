@@ -1,6 +1,9 @@
 package org.bitbucket.javamug.sink;
 
-
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 public class ClosedDataSinkException extends SinkException {
     private static final long serialVersionUID = -520194742872624908L;
 

@@ -9,6 +9,10 @@ import java.nio.file.Path;
 
 import org.bitbucket.javamug.Entry;
 
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 public class DirectoryDataSink extends AbstractDataSink {
     private Path base;
 
