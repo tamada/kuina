@@ -2,6 +2,10 @@ package org.bitbucket.javamug.sink;
 
 import org.bitbucket.javamug.MugException;
 
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 public class SinkException extends MugException {
     private static final long serialVersionUID = -545818850989854438L;
 

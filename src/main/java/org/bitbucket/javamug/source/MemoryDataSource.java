@@ -9,6 +9,11 @@ import java.util.List;
 
 import org.bitbucket.javamug.Entry;
 
+/**
+ * Concrete class of data source for reading from memories.
+ * 
+ * @author Haruaki Tamada
+ */
 public class MemoryDataSource implements DataSource {
     private Entry entry;
 

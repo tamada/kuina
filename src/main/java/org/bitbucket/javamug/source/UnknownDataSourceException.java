@@ -1,5 +1,10 @@
 package org.bitbucket.javamug.source;
 
+/**
+ * Exception class for no corresponding data source from given path.
+ * 
+ * @author Haruaki Tamada
+ */
 public class UnknownDataSourceException extends SourceException {
     private static final long serialVersionUID = 3492973816770422563L;
 
