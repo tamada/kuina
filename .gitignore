@@ -20,4 +20,7 @@ jcoverage.ser
 #
 .DS_Store
 ._*
-
+#
+# Others
+#
+release.properties
