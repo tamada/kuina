@@ -10,6 +10,10 @@ import java.nio.file.Path;
 
 import org.bitbucket.javamug.Entry;
 
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 class ClassFileDataSink extends AbstractDataSink {
     private Entry entry = null;
 
@@ -35,7 +39,7 @@ class ClassFileDataSink extends AbstractDataSink {
 
             private byte[] getBytes(Entry entry) throws IOException {
                 try(InputStream in = entry.getInputStream();
-                        ByteArrayOutputStream out = new ByteArrayOutputStream()){
+                    ByteArrayOutputStream out = new ByteArrayOutputStream()){
                     int data;
                     while((data = in.read()) != -1){
                         out.write(data);

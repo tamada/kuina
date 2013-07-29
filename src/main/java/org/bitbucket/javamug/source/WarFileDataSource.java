@@ -2,11 +2,8 @@ package org.bitbucket.javamug.source;
 
 import org.bitbucket.javamug.Entry;
 
-
-
 /**
- * 
- * 
+ * Concrete class of data source for reading from war file.
  *
  * @author Haruaki TAMADA
  */
