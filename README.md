@@ -7,7 +7,6 @@ Overview
 JavaMug aims to support extracting and storing java class files
 from/to some archives.
 
-
 Requirements
 ------------
 
@@ -23,13 +22,10 @@ Requirements
 Authors
 -------
 
-Name: Haruaki Tamada
-
-Affiliation: Faculty of Computer Science and Engineering, Kyoto Sangyo University.
-
-E-mail: tamada[__at__]cc.kyoto-su.ac.jp
-
-Web Page: http://bitbucket.org/htamada/javamug/
+ Author: Associate Professor, Haruaki Tamada (Ph.D) 
+ Affiliation: Faculty of Computer Science and Engineering, Kyoto Sangyo University.
+ E-mail: tamada[__at__]cc.kyoto-su.ac.jp
+ Web Page: http://bitbucket.org/htamada/javamug/
 
 License
 -------

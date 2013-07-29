@@ -4,6 +4,16 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Builder class for {@link DataSource <code>DataSource</code>}.
+ * This class is designed singleton.
+ * <pre> DataSource source = DataSourceBuilder().getBuilder().build(
+ *   "path of data source"
+ * );
+ * </pre>
+ * 
+ * @author Haruaki Tamada
+ */
 public class DataSourceBuilder {
     private static final DataSourceBuilder builder = new DataSourceBuilder();
 

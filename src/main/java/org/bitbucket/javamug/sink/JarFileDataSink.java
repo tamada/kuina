@@ -13,7 +13,11 @@ import java.util.jar.JarOutputStream;
 
 import org.bitbucket.javamug.Entry;
 
-class JarFileDataSink extends AbstractDataSink {
+/**
+ * 
+ * @author Haruaki Tamada
+ */
+public class JarFileDataSink extends AbstractDataSink {
     private JarOutputStream out;
 
     JarFileDataSink(String fileName){
