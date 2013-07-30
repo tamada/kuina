@@ -1,13 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-  <parent>
-    <groupId>com.clickconcepts.project</groupId>
-    <artifactId>master-site-pom</artifactId>
-    <version>0.16</version>
-  </parent>
-
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.bitbucket</groupId>
   <artifactId>javamug</artifactId>
@@ -37,36 +30,17 @@
     </dependency>
   </dependencies>
 
-  <properties>
-    <scm-publish.scmBranch>master</scm-publish.scmBranch>
-    <scm-publish.pubScmUrl>
-      scm:git:git@bitbucket.org:htamada/htamada.bitbucket.org.git
-    </scm-publish.pubScmUrl>
-    <!-- Location of where "site" documentation is output; This is for BitBucket only!!! -->
-    <siteOutputDirectory>
-      ${project.build.directory}/site/${project.artifactId}
-    </siteOutputDirectory>
-    <scm-publish.siteDocOuputDirectory>
-      ${project.build.directory}/site
-    </scm-publish.siteDocOuputDirectory>
-    <!-- Overwrite from Parent Pom  -->
-    <changelog.fileUri>${changelog.bitbucket.fileUri}</changelog.fileUri>
-    <changelog.revision.fileUri>${changelog.revision.bitbucket.fileUri}</changelog.revision.fileUri>
-  </properties>
-
-  <pluginRepositories>
-    <pluginRepository>
-      <id>synergian-repo</id>
-      <url>https://raw.github.com/synergian/wagon-git/releases</url>
-    </pluginRepository>
-  </pluginRepositories>
-
   <distributionManagement>
     <repository>
-      <id>htamada.bitbucket</id>
-      <name>Bitbucket repository</name>
-      <url>git:master://git@bitbucket.org:htamada/htamada.bitbucket.org.git</url>
+      <id>local.bitbucket</id>
+      <name>Local bitbucket maven repository</name>
+      <url>file:${basedir}/../htamada.bitbucket.org/maven</url>
     </repository>
+    <site>
+      <id>local.bitbucket</id>
+      <name>Local javamug web site</name>
+      <url>file:${basedir}/../htamada.bitbucket.org/javamug</url>
+    </site>
   </distributionManagement>
 
   <build>
