@@ -27,7 +27,7 @@ class WarFileDataSource extends JarFileDatasource {
 
     @Override
     String getPrefix(Entry entry){
-        if(entry.getType() == Entry.Type.CLASS){
+        if(entry.getType() == Entry.Type.CLASS_FILE){
             return prefix + "/classes/";
         }
         return super.getPrefix(entry);

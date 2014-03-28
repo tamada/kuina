@@ -40,11 +40,11 @@ public class JarFileDataSourceTest {
         assertThat(entry1.getType(), is(Entry.Type.RESOURCE));
         assertThat(entry1.getResourcePath(), is("META-INF/MANIFEST.MF"));
 
-        assertThat(entry2.getType(), is(Entry.Type.CLASS));
+        assertThat(entry2.getType(), is(Entry.Type.CLASS_FILE));
         assertThat(entry2.getClassName(), is("hello.HelloWorld"));
         assertThat(entry2.getResourcePath(), is("hello/HelloWorld.class"));
 
-        assertThat(entry3.getType(), is(Entry.Type.RESOURCE));
+        assertThat(entry3.getType(), is(Entry.Type.SOURCE_FILE));
         assertThat(entry3.getResourcePath(), is("hello/HelloWorld.java"));
     }
 }

@@ -10,6 +10,10 @@ import org.bitbucket.javamug.source.DataSource;
  */
 public class ResourceEntry extends AbstractEntry {
     public ResourceEntry(DataSource source, String resourcePath){ 
-        super(Type.RESOURCE, source, resourcePath);
+        this(Type.RESOURCE, source, resourcePath);
+    }
+
+    public ResourceEntry(Type type, DataSource source, String resourcePath){ 
+        super(type, source, resourcePath);
     }
 }

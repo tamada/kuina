@@ -35,10 +35,10 @@ public class WarFileDataSourceTest {
         Entry entry2 = iterator.next();
         assertFalse(iterator.hasNext());
 
-        assertThat(entry1.getType(), is(Entry.Type.RESOURCE));
+        assertThat(entry1.getType(), is(Entry.Type.SOURCE_FILE));
         assertThat(entry1.getResourcePath(), is("hello/src/hello/HelloWorld.java"));
 
-        assertThat(entry2.getType(), is(Entry.Type.CLASS));
+        assertThat(entry2.getType(), is(Entry.Type.CLASS_FILE));
         assertThat(entry2.getClassName(), is("hello.HelloWorld"));
         assertThat(entry2.getResourcePath(), is("hello/HelloWorld.class"));
     }

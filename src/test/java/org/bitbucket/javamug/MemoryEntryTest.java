@@ -38,7 +38,7 @@ public class MemoryEntryTest {
 
         assertThat(entry.getClassName(), is(("hello.HelloWorld")));
         assertThat(entry.getResourcePath(), is("hello/HelloWorld.class"));
-        assertThat(entry.getType(), is(Entry.Type.CLASS));
+        assertThat(entry.getType(), is(Entry.Type.CLASS_FILE));
         assertThat(source.getBase(), is(nullValue()));
     }
 }

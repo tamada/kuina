@@ -15,10 +15,22 @@ import org.bitbucket.javamug.Entry;
  * @author Haruaki Tamada
  */
 public class MemoryDataSource implements DataSource {
-    private Entry entry;
+    private List<Entry> entries;
+
+    public MemoryDataSource(){
+        entries = new ArrayList<Entry>();
+    }
 
     public MemoryDataSource(Entry entry){
-        this.entry = entry;
+        this();
+        entries.add(entry);
+    }
+
+    public MemoryDataSource(Entry[] entryArray){
+        this();
+        for(Entry entry: entryArray){
+            entries.add(entry);
+        }
     }
 
     @Override
@@ -27,9 +39,14 @@ public class MemoryDataSource implements DataSource {
     }
 
     @Override
+    public boolean contains(Entry givenEntry){
+        return entries.contains(givenEntry);
+    }
+
+    @Override
     public InputStream getInputStream(Entry givenEntry) throws IOException {
-        if(entry == givenEntry){
-            return entry.getInputStream();
+        if(entries.contains(givenEntry)){
+            return givenEntry.getInputStream();
         }
         return null;
     }
@@ -46,9 +63,7 @@ public class MemoryDataSource implements DataSource {
 
     @Override
     public Iterator<Entry> iterator() {
-        List<Entry> list = new ArrayList<>();
-        list.add(entry);
-        return list.iterator();
+        return entries.iterator();
     }
 
 }
