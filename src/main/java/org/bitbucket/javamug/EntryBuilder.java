@@ -26,7 +26,18 @@ public class EntryBuilder {
         return builder;
     }
 
+    public Entry.Type parseType(String resourceType){
+        for(Entry.Type type: Entry.Type.values()){
+            for(String ext: type.getExtensions()){
+                if(resourceType.endsWith(ext)){
+                    return type;
+                }
+            }
+        }
+        return Entry.Type.RESOURCE;
+    }
+
     public Entry build(String resourceName, byte[] data){
-        return new MemoryEntry(resourceName, data);
+        return new MemoryEntry(parseType(resourceName), resourceName, data);
     }
 }

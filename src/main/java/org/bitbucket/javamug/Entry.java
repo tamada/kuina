@@ -2,6 +2,7 @@ package org.bitbucket.javamug;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 import org.bitbucket.javamug.source.DataSource;
 
@@ -16,7 +17,25 @@ public interface Entry {
      * @author Haruaki Tamada
      */
     public static enum Type {
-        RESOURCE, CLASS
+        CLASS_FILE(".class"), SOURCE_FILE(".java"), 
+        SOURCE_JAR_FILE("-sources.jar"),
+        JAR_FILE(".jar"), WAR_FILE(".war"), SHA1(".sha1"),
+        POM(".pom"), PROPERTY_FILE(".properties"),
+        IMAGE(new String[] { ".jpg", ".png", ".gif" }),
+        RESOURCE("");
+
+        private String[] extensions;
+
+        Type(String... exts){
+            extensions = new String[exts.length];
+            for(int i = 0; i < exts.length; i++){
+                extensions[i] = exts[i];
+            }
+        }
+
+        public String[] getExtensions(){
+            return Arrays.copyOf(extensions, extensions.length);
+        }
     };
 
     /**

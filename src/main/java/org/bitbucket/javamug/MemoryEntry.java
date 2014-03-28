@@ -20,11 +20,10 @@ class MemoryEntry implements Entry {
     private byte[] data;
     private DataSource source;
 
-    MemoryEntry(String resourcePath, byte[] givenData){
-        this.type = Entry.Type.RESOURCE;
+    MemoryEntry(Type type, String resourcePath, byte[] givenData){
+        this.type = type;
         this.resourcePath = resourcePath;
         if(resourcePath.endsWith(".class")){
-            this.type = Entry.Type.CLASS;
             className = resourcePath.substring(
                 0, resourcePath.length() - ".class".length()
             );

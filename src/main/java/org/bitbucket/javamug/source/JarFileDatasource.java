@@ -14,6 +14,7 @@ import java.util.jar.JarFile;
 
 import org.bitbucket.javamug.ClassEntry;
 import org.bitbucket.javamug.Entry;
+import org.bitbucket.javamug.EntryBuilder;
 import org.bitbucket.javamug.ResourceEntry;
 
 /**
@@ -26,6 +27,7 @@ class JarFileDatasource extends AbstractDataSource{
     private JarFile jarfile;
     private URL jarfileLocation;
     private List<Entry> entryList;
+    private DataSource parent;
 
     JarFileDatasource(String jarfile) throws SourceException{
         super(Type.JAR_FILE);
@@ -37,6 +39,13 @@ class JarFileDatasource extends AbstractDataSource{
         } catch(IOException e){
             throw new ReadFailedException(e.getMessage(), e);
         }
+
+        this.parent = this;
+    }
+
+    JarFileDatasource(String jarfile, DataSource parent) throws SourceException{
+        this(jarfile);
+        this.parent = parent;
     }
 
     @Override
@@ -45,6 +54,11 @@ class JarFileDatasource extends AbstractDataSource{
             return getLocation(entry).openStream();
         }
         return null;
+    }
+
+    @Override
+    public boolean contains(Entry givenEntry){
+        return entryList.contains(givenEntry);
     }
 
     @Override
@@ -80,13 +94,16 @@ class JarFileDatasource extends AbstractDataSource{
         
         for(Enumeration<JarEntry> e = jarfile.entries(); e.hasMoreElements(); ){
             JarEntry entry = e.nextElement();
-            if(!entry.getName().endsWith("/")){
-                if(entry.getName().endsWith(DataSource.Type.CLASS_FILE.getExtension())){
-                    String className = parseClassName(entry.getName());
+            String name = entry.getName();
+            if(!name.endsWith("/")){
+                Entry.Type type = EntryBuilder.getBuilder().parseType(name);
+                
+                if(type == Entry.Type.CLASS_FILE){
+                    String className = parseClassName(name);
                     entryList.add(new ClassEntry(this, className));
                 }
                 else{
-                    entryList.add(new ResourceEntry(this, entry.getName()));
+                    entryList.add(new ResourceEntry(type, parent, name));
                 }
             }
         }
@@ -98,7 +115,7 @@ class JarFileDatasource extends AbstractDataSource{
 
     String parseClassName(String className){
         String name = className.substring(
-            0, className.length() - DataSource.Type.CLASS_FILE.getExtension().length()
+            0, className.length() - ".class".length()
         );
         name = name.replace('/', '.');
         return name;

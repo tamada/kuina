@@ -20,7 +20,7 @@ public interface DataSource extends Iterable<Entry> {
      * @author Haruaki Tamada
      */
     public static enum Type {
-        CLASS_FILE(".class"), DIRECTORY(""), JAR_FILE(".jar"), MEMORY("");
+        CLASS_FILE(".class"), DIRECTORY(""), JAR_FILE(".jar"), MEMORY(""), MAVEN_REPOSITORY("");
 
         String extension;
 
@@ -43,6 +43,13 @@ public interface DataSource extends Iterable<Entry> {
      * @return the location of given entry.
      */
     URL getLocation(Entry entry);
+
+    /**
+     * returns this data source has a given entry or not.
+     * @param entry.
+     * @return true when the given entry is in this data source.
+     */
+    boolean contains(Entry entry);
 
     /**
      * returns input stream of the given entry.

@@ -34,9 +34,7 @@ public class DirectoryDataSink extends AbstractDataSink {
     public void putEntry(Entry entry) throws SinkException {
         try{
             String resourcePath = entry.getResourcePath();
-            if(entry.getType() == Entry.Type.CLASS){
 
-            }
             Path path = FileSystems.getDefault().getPath(getBase(), resourcePath);
             Files.createDirectories(path.getParent());
             Files.copy(entry.getInputStream(), path);

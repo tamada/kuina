@@ -33,7 +33,7 @@ public class ClassFileDataSourceTest {
         assertTrue(iterator.hasNext());
         Entry entry1 = iterator.next();
 
-        assertThat(entry1.getType(), is(Entry.Type.CLASS));
+        assertThat(entry1.getType(), is(Entry.Type.CLASS_FILE));
         assertThat(entry1.getClassName(), is("hello.HelloWorld"));
         assertThat(entry1.getResourcePath(), is("hello/HelloWorld.class"));
     }

@@ -28,6 +28,7 @@ class ClassFileDataSource extends AbstractDataSource {
         this.path = FileSystems.getDefault().getPath(file);
     }
 
+    @Override
     public URL getLocation(Entry givenEntry) {
         buildEntry();
         if(entry == givenEntry){
@@ -36,10 +37,17 @@ class ClassFileDataSource extends AbstractDataSource {
         return null;
     }
 
+    @Override
+    public boolean contains(Entry givenEntry){
+        return entry == givenEntry;
+    }
+
+    @Override
     public String getBase() {
         return path.toString().replace('\\', '/');
     }
 
+    @Override
     public Iterator<Entry> iterator() {
         buildEntry();
         List<Entry> list = new ArrayList<Entry>();
@@ -49,6 +57,7 @@ class ClassFileDataSource extends AbstractDataSource {
         return list.iterator();
     }
 
+    @Override
     public InputStream getInputStream(Entry givenEntry) throws IOException{
         buildEntry();
         if(entry == givenEntry){

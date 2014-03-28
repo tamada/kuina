@@ -71,12 +71,20 @@ public class JarFileDataSink extends AbstractDataSink {
     protected JarEntry createJarEntry(Entry entry){
         JarEntry jarEntry;
         switch(entry.getType()){
-        case CLASS:
+        case CLASS_FILE:
             jarEntry = new JarEntry(
                 entry.getClassName().replace('.', '/') + ".class"
             );
             break;
         case RESOURCE:
+        case SOURCE_FILE:
+        case WAR_FILE:
+        case JAR_FILE:
+        case SOURCE_JAR_FILE:
+        case SHA1:
+        case POM:
+        case IMAGE:
+        case PROPERTY_FILE:
             jarEntry = new JarEntry(entry.getResourcePath());
             break;
         default:

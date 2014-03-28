@@ -12,7 +12,7 @@ public class ClassEntry extends AbstractEntry {
     private String className;
 
     public ClassEntry(DataSource source, String className){
-        super(Type.CLASS, source, className.replace('.', '/') + ".class");
+        super(Type.CLASS_FILE, source, className.replace('.', '/') + ".class");
         this.className = className;
     }
 
