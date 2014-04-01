@@ -1,8 +1,5 @@
 package org.bitbucket.javamug.source;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -31,24 +28,6 @@ public class MemoryDataSource implements DataSource {
         for(Entry entry: entryArray){
             entries.add(entry);
         }
-    }
-
-    @Override
-    public URL getLocation(Entry entry) {
-        return null;
-    }
-
-    @Override
-    public boolean contains(Entry givenEntry){
-        return entries.contains(givenEntry);
-    }
-
-    @Override
-    public InputStream getInputStream(Entry givenEntry) throws IOException {
-        if(entries.contains(givenEntry)){
-            return givenEntry.getInputStream();
-        }
-        return null;
     }
 
     @Override

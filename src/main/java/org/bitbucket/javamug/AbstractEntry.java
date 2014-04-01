@@ -1,8 +1,5 @@
 package org.bitbucket.javamug;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import org.bitbucket.javamug.source.DataSource;
 
 /**
@@ -14,24 +11,44 @@ public abstract class AbstractEntry implements Entry {
     private DataSource source;
     private Type type;
     private String resourcePath;
+    private String className;
 
     AbstractEntry(Type type, DataSource source, String resourcePath){
+        this(type, source, resourcePath, null);
+    }
+
+    AbstractEntry(Type type, DataSource source, String resourcePath, String className){
         this.type = type;
         this.source = source;
-        this.resourcePath = resourcePath;
+        this.resourcePath = resourcePath.replace('\\', '/');
+        this.className = className;
     }
 
     /**
-     * always returns null.
+     * returns class name of this resource.
+     * If this resource is not a class file, this method returns null.
+     * This method is available when {@link #getType <code>getType</code>} method
+     * returns {@link Entry.Type.CLASS_FILE <code>CLASS_FILE</code>} type.
      */
     @Override
     public String getClassName(){
-        return null;
+        return className;
+    }
+
+    @Override
+    public void resetResourcePath(){
+        if(className != null){
+            resourcePath = className.replace('.', '/') + ".class";
+        }
     }
 
     @Override
     public final String getResourcePath(){
         return resourcePath;
+    }
+
+    public final void setResourcePath(String path){
+        this.resourcePath = path;
     }
 
     @Override
@@ -43,10 +60,4 @@ public abstract class AbstractEntry implements Entry {
     public final Type getType() {
         return type;
     }
-
-    @Override
-    public final InputStream getInputStream() throws IOException {
-        return getSource().getInputStream(this);
-    }
-
 }

@@ -3,19 +3,15 @@ package org.bitbucket.javamug.source;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
-import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import org.bitbucket.javamug.ClassEntry;
 import org.bitbucket.javamug.Entry;
 import org.bitbucket.javamug.EntryBuilder;
-import org.bitbucket.javamug.ResourceEntry;
+import org.bitbucket.javamug.StreamEntry;
 
 /**
  * Concrete class of data source for reading from jar files.
@@ -24,22 +20,12 @@ import org.bitbucket.javamug.ResourceEntry;
  */
 class JarFileDatasource extends AbstractDataSource{
     private File file;
-    private JarFile jarfile;
-    private URL jarfileLocation;
-    private List<Entry> entryList;
     private DataSource parent;
 
     JarFileDatasource(String jarfile) throws SourceException{
         super(Type.JAR_FILE);
 
-        try{
-            this.file = new File(jarfile);
-            this.jarfile = new JarFile(jarfile);
-            this.jarfileLocation = file.toURI().toURL();
-        } catch(IOException e){
-            throw new ReadFailedException(e.getMessage(), e);
-        }
-
+        this.file = new File(jarfile);
         this.parent = this;
     }
 
@@ -49,64 +35,79 @@ class JarFileDatasource extends AbstractDataSource{
     }
 
     @Override
-    public InputStream getInputStream(Entry entry) throws IOException{
-        if(entryList.contains(entry)){
-            return getLocation(entry).openStream();
-        }
-        return null;
-    }
-
-    @Override
-    public boolean contains(Entry givenEntry){
-        return entryList.contains(givenEntry);
-    }
-
-    @Override
-    public URL getLocation(Entry givenEntry){
-        if(entryList.contains(givenEntry)){
-            try {
-                return new URL(
-                    "jar:" + jarfileLocation + "!/" +
-                    getPrefix(givenEntry) +
-                    givenEntry.getResourcePath()
-                );
-            } catch (MalformedURLException e) {
-            }
-        }
-        return null;
-    }
-
-    @Override
     public String getBase(){
         return file.getPath().replace('\\', '/');
+    }
+    
+    private JarFile openJarFile(){
+        try {
+            return new JarFile(file);
+        } catch (IOException e1) {
+        }
+        return null;
     }
 
     @Override
     public Iterator<Entry> iterator(){
-        if(entryList == null) {
-            buildEntries();
-        }
-        return entryList.iterator();
-    }
+        final JarFile jarfile = openJarFile();
 
-    private void buildEntries(){
-        entryList = new ArrayList<Entry>();
-        
-        for(Enumeration<JarEntry> e = jarfile.entries(); e.hasMoreElements(); ){
-            JarEntry entry = e.nextElement();
-            String name = entry.getName();
-            if(!name.endsWith("/")){
-                Entry.Type type = EntryBuilder.getBuilder().parseType(name);
-                
-                if(type == Entry.Type.CLASS_FILE){
-                    String className = parseClassName(name);
-                    entryList.add(new ClassEntry(this, className));
+        return new Iterator<Entry>(){
+            private Enumeration<JarEntry> enumeration = jarfile.entries();
+            private Entry next;
+            private boolean stillOpenFlag = true;
+
+            @Override
+            public boolean hasNext(){
+                while(next == null && enumeration.hasMoreElements()){
+                    next = getNext();
                 }
-                else{
-                    entryList.add(new ResourceEntry(type, parent, name));
+                if(next == null && stillOpenFlag){
+                    try {
+                        jarfile.close();
+                        stillOpenFlag = false;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+                return next != null;
             }
-        }
+
+            @Override
+            public Entry next(){
+                if(hasNext()){
+                    Entry e = next;
+                    next = null;
+                    return e;
+                }
+                throw new NoSuchElementException();
+            }
+
+            private Entry getNext(){
+                JarEntry jarEntry = enumeration.nextElement();
+                String name = jarEntry.getName();
+
+                Entry entry = null;
+                if(!name.endsWith("/")){
+                    try{
+                        Entry.Type type = EntryBuilder.getBuilder().parseType(name);
+
+                        InputStream in = jarfile.getInputStream(jarEntry);
+                        String className = null;
+                        if(type == Entry.Type.CLASS_FILE){
+                            className = parseClassName(name);
+                        }
+                        entry = new StreamEntry(type, parent, name, className, in);
+                    } catch(IOException e){
+                        entry = null;
+                    }
+                }
+                return entry;
+            }
+
+            @Override
+            public void remove(){
+            }
+        };
     }
 
     String getPrefix(Entry entry){
@@ -119,9 +120,5 @@ class JarFileDatasource extends AbstractDataSource{
         );
         name = name.replace('/', '.');
         return name;
-    }
-
-    Enumeration<JarEntry> jarEntries(){
-        return jarfile.entries();
     }
 }

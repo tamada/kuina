@@ -1,8 +1,5 @@
 package org.bitbucket.javamug.source;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.Iterator;
 
 import org.bitbucket.javamug.Entry;
@@ -36,30 +33,6 @@ public interface DataSource extends Iterable<Entry> {
             return extension;
         }
     };
-
-    /**
-     * returns the location of given entry.
-     * @param entry for location.
-     * @return the location of given entry.
-     */
-    URL getLocation(Entry entry);
-
-    /**
-     * returns this data source has a given entry or not.
-     * @param entry.
-     * @return true when the given entry is in this data source.
-     */
-    boolean contains(Entry entry);
-
-    /**
-     * returns input stream of the given entry.
-     * If the given entry is not contained this source,
-     * this method returns null.
-     * @param givenEntry
-     * @return corresponding input stream.
-     * @throws IOException I/O error
-     */
-    InputStream getInputStream(Entry givenEntry) throws IOException;
 
     /**
      * returns the type of this object.
