@@ -40,6 +40,6 @@ public class WarFileDataSourceTest {
 
         assertThat(entry2.getType(), is(Entry.Type.CLASS_FILE));
         assertThat(entry2.getClassName(), is("hello.HelloWorld"));
-        assertThat(entry2.getResourcePath(), is("hello/HelloWorld.class"));
+        assertThat(entry2.getResourcePath(), is("hello/WEB-INF/classes/hello/HelloWorld.class"));
     }
 }

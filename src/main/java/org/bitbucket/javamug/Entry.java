@@ -54,6 +54,14 @@ public interface Entry {
     String getResourcePath();
 
     /**
+     * sets path of this entry.
+     * @param resourcePath
+     */
+    void setResourcePath(String resourcePath);
+
+    void resetResourcePath();
+
+    /**
      * class name of this entry.
      * If this entry type is {@link Type#RESOURCE <code>RESOURCE</code>},
      * this method returns null.

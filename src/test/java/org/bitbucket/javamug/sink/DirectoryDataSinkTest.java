@@ -85,6 +85,7 @@ public class DirectoryDataSinkTest {
 
         Iterator<Entry> iterator = source.iterator();
         Entry entry1 = iterator.next();
+        entry1.resetResourcePath();
 
         sink.putEntry(entry1);
         sink.close();

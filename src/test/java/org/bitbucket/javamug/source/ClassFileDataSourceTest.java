@@ -35,7 +35,7 @@ public class ClassFileDataSourceTest {
 
         assertThat(entry1.getType(), is(Entry.Type.CLASS_FILE));
         assertThat(entry1.getClassName(), is("hello.HelloWorld"));
-        assertThat(entry1.getResourcePath(), is("hello/HelloWorld.class"));
+        assertThat(entry1.getResourcePath(), is("target/test-classes/resources/hello/HelloWorld.class"));
     }
 
     @Test(expected=UnknownDataSourceException.class)

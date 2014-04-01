@@ -45,6 +45,16 @@ class MemoryEntry implements Entry {
     }
 
     @Override
+    public void resetResourcePath() {
+        // do nothing.
+    }
+
+    @Override
+    public void setResourcePath(String path){
+        this.resourcePath = path;
+    }
+
+    @Override
     public String getClassName() {
         return className;
     }

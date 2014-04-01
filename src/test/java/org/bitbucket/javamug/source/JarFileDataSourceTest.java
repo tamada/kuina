@@ -37,8 +37,8 @@ public class JarFileDataSourceTest {
         Entry entry3 = iterator.next();
         assertFalse(iterator.hasNext());
 
-        assertThat(entry1.getType(), is(Entry.Type.RESOURCE));
         assertThat(entry1.getResourcePath(), is("META-INF/MANIFEST.MF"));
+        assertThat(entry1.getType(), is(Entry.Type.RESOURCE));
 
         assertThat(entry2.getType(), is(Entry.Type.CLASS_FILE));
         assertThat(entry2.getClassName(), is("hello.HelloWorld"));
