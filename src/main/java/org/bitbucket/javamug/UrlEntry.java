@@ -6,6 +6,10 @@ import java.net.URL;
 
 import org.bitbucket.javamug.source.DataSource;
 
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 public class UrlEntry extends AbstractEntry {
     private URL location;
 
