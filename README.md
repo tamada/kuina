@@ -24,7 +24,7 @@ Authors
 
  Author: Associate Professor, Haruaki Tamada (Ph.D) 
  Affiliation: Faculty of Computer Science and Engineering, Kyoto Sangyo University.
- E-mail: tamada[__at__]cc.kyoto-su.ac.jp
+ E-mail: tamada_f@ke_cc.kyoto-su.ac.jp
  Web Page: http://bitbucket.org/htamada/javamug/
 
 License

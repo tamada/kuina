@@ -5,6 +5,10 @@ import java.io.InputStream;
 
 import org.bitbucket.javamug.source.DataSource;
 
+/**
+ * 
+ * @author Haruaki Tamada
+ */
 public class StreamEntry extends AbstractEntry {
     private InputStream in;
 

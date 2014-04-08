@@ -16,7 +16,7 @@ import org.bitbucket.javamug.StreamEntry;
 /**
  * Concrete class of data source for reading from jar files.
  *
- * @author Haruaki TAMADA
+ * @author Haruaki Tamada
  */
 class JarFileDatasource extends AbstractDataSource{
     private File file;
