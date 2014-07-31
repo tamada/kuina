@@ -45,7 +45,7 @@ class ClassNameExtractVisitor extends ClassVisitor{
             reader.accept(visitor, ClassReader.SKIP_CODE | ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
 
             return visitor.getClassName();
-            
+
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -53,7 +53,7 @@ class ClassNameExtractVisitor extends ClassVisitor{
     }
 
     public ClassNameExtractVisitor(){
-        super(Opcodes.ASM4);
+        super(Opcodes.ASM5);
     }
 
     public String getClassName(){
