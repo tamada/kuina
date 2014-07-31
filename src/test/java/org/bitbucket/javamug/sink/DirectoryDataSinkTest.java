@@ -58,22 +58,30 @@ public class DirectoryDataSinkTest {
         Entry entry2 = iterator.next();
         Entry entry3 = iterator.next();
         Entry entry4 = iterator.next();
+        Entry entry5 = iterator.next();
+        Entry entry6 = iterator.next();
 
         sink.putEntry(entry1);
         sink.putEntry(entry2);
         sink.putEntry(entry3);
         sink.putEntry(entry4);
+        sink.putEntry(entry5);
+        sink.putEntry(entry6);
         sink.close();
 
-        File file1 = new File("hoge2/hello/HelloWorld.class");
-        File file2 = new File("hoge2/hello/HelloWorld.java");
-        File file3 = new File("hoge2/hello.jar");
-        File file4 = new File("hoge2/hello.war");
+        File file1 = new File("hoge2/Hello2.class");
+        File file2 = new File("hoge2/Hello2.java");
+        File file3 = new File("hoge2/hello/HelloWorld.class");
+        File file4 = new File("hoge2/hello/HelloWorld.java");
+        File file5 = new File("hoge2/hello.jar");
+        File file6 = new File("hoge2/hello.war");
 
         Assert.assertTrue(file1.exists());
         Assert.assertTrue(file2.exists());
         Assert.assertTrue(file3.exists());
         Assert.assertTrue(file4.exists());
+        Assert.assertTrue(file5.exists());
+        Assert.assertTrue(file6.exists());
     }
 
     @Test
@@ -104,6 +112,8 @@ public class DirectoryDataSinkTest {
         new File("hoge1/hello").delete();
         new File("hoge1").delete();
 
+        new File("hoge2/Hello2.class").delete();
+        new File("hoge2/Hello2.java").delete();
         new File("hoge2/hello/HelloWorld.class").delete();
         new File("hoge2/hello/HelloWorld.java").delete();
         new File("hoge2/hello.jar").delete();
