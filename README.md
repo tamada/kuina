@@ -15,7 +15,7 @@ Requirements
 * Project Management
     * [Maven 3.x](http://maven.apache.org/)
 * Dependencies for Compilation
-    * [ASM 4.1](http://asm.objectweb.org/)
+    * [ASM 5.0.3](http://asm.objectweb.org/)
 * Test Environment
     * [JUnit 4.11](http://www.junit.org/)
 
