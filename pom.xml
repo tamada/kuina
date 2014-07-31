@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.bitbucket</groupId>
   <artifactId>javamug</artifactId>
-  <version>1.4-SNAPSHOT</version>
+  <version>1.4.1</version>
 
   <name>JavaMug</name>
   <url>https://bitbucket.org/htamada/javamug</url>
@@ -13,7 +13,7 @@
     <connection>scm:git:ssh://git@bitbucket.org/htamada/javamug.git</connection>
     <developerConnection>scm:git:ssh://git@bitbucket.org/htamada/javamug.git</developerConnection>
     <url>https://bitbucket.org/htamada/javamug.git</url>
-    <tag>HEAD</tag>
+    <tag>v1.4.1</tag>
   </scm>
 
   <dependencies>
