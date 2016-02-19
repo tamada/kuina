@@ -31,7 +31,7 @@ abstract class AbstractDataSink implements DataSink {
     }
 
     @Override
-    public void close() throws SinkException{
+    public final void close() throws SinkException{
         if(closed){
             throw new ClosedDataSinkException();
         }

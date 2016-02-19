@@ -3,7 +3,7 @@ package org.bitbucket.javamug.sink;
 import org.bitbucket.javamug.Entry;
 
 /**
- * This class represents the destination of {@link Entry <code>Entry</code>} object.
+ * This class represents the destination of {@link Entry Entry} object.
  * 
  * @author Haruaki Tamada
  */
@@ -32,12 +32,12 @@ public interface DataSink extends AutoCloseable {
     };
 
     /**
-     * returns {@link ClassLoader <code>ClassLoader</code>} object 
+     * returns {@link ClassLoader ClassLoader} object 
      * which contains class files of this object.
      * If this object is not closed, then this method throws
-     * {@link NotFilledEntriesException <code>NotFilledEntriesException</code>}.
+     * {@link NotFilledEntriesException NotFilledEntriesException}.
      * @return ClassLoader for class files of this object.
-     * @throws SinkException when this object is not closed.
+     * @throws SinkException will be thrown when this object is closed.
      */
     ClassLoader getClassLoader() throws SinkException;
 
@@ -57,7 +57,7 @@ public interface DataSink extends AutoCloseable {
     /**
      * put entry to this object.
      * If duplicated entry is put, this method throws {@link AlreadySinkEntryException
-     * <code>AlreadySinkEntryException</code>}.
+     * AlreadySinkEntryException}.
      * 
      * @param entry to put this object.
      * @throws SinkException I/O error
@@ -66,11 +66,11 @@ public interface DataSink extends AutoCloseable {
 
     /**
      * closes this object.  After called this method, The {@link #putEntry
-     * <code>putEntry</code>} method makes invalid, also, the {@link
-     * #getClassLoader <code>getClassLoader</code>} is available.
+     * putEntry} method makes invalid, also, the {@link
+     * #getClassLoader getClassLoader} is available.
      * If the method call is duplicated, this method throws {@link 
-     * ClosedDataSinkException <code>ClosedDataSinkException</code>}.
-     * @throws SinkException 
+     * ClosedDataSinkException ClosedDataSinkException}.
+     * @throws SinkException I/O error
      */
     void close() throws SinkException;
 }

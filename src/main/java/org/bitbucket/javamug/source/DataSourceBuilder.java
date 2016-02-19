@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
- * Builder class for {@link DataSource <code>DataSource</code>}.
+ * Builder class for {@link DataSource DataSource}.
  * This class is designed singleton.
  * <pre> DataSource source = DataSourceBuilder().getBuilder().build(
  *   "path of data source"

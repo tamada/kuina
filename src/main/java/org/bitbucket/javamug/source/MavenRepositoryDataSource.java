@@ -34,6 +34,7 @@ public class MavenRepositoryDataSource extends AbstractDataSource {
 
     /**
      * Construct a instance with local repository path of Maven.
+     * @param repositoryPath path of maven repository
      */
     public MavenRepositoryDataSource(String repositoryPath) {
         super(Type.MAVEN_REPOSITORY);

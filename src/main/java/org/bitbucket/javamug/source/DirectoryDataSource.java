@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.bitbucket.javamug.Entry;
 import org.bitbucket.javamug.EntryBuilder;
@@ -50,6 +51,12 @@ class DirectoryDataSource extends AbstractDataSource {
         List<Entry> entryList = buildEntryList();
 
         return entryList.iterator();
+    }
+
+    @Override
+    public Stream<Entry> stream(){
+        List<Entry> entries = buildEntryList();
+        return entries.stream();
     }
 
     private List<Entry> buildEntryList(){

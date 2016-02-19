@@ -46,16 +46,14 @@ public interface Entry {
 
     /**
      * returns relative path of this entry from
-     * {@link DataSource <code>DataSource</code>}.
-     * Use {@link DataSource#getLocation(Entry) <code>DataSource#getLocation</code>} for 
-     * absolute path.
+     * {@link DataSource DataSource}.
      * @return relative path.
      */
     String getResourcePath();
 
     /**
      * sets path of this entry.
-     * @param resourcePath
+     * @param resourcePath path of this entry
      */
     void setResourcePath(String resourcePath);
 
@@ -63,7 +61,7 @@ public interface Entry {
 
     /**
      * class name of this entry.
-     * If this entry type is {@link Type#RESOURCE <code>RESOURCE</code>},
+     * If this entry type is {@link Type#RESOURCE RESOURCE},
      * this method returns null.
      * @return class name
      */
@@ -78,7 +76,7 @@ public interface Entry {
     /**
      * returns input stream of this entry.
      * @return input stream.
-     * @throws IOException
+     * @throws IOException I/O error.
      */
     InputStream getInputStream() throws IOException;
 }

@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import org.bitbucket.javamug.Entry;
 
@@ -79,5 +81,9 @@ public class MultipleDataSink extends AbstractDataSink implements Iterable<DataS
     @Override
     public void putEntry(Entry entry) {
         throw new NoSuchMethodError();
+    }
+
+    public Stream<DataSink> stream(){
+        return StreamSupport.stream(this.spliterator(), false);
     }
 }

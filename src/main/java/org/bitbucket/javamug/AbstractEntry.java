@@ -3,7 +3,7 @@ package org.bitbucket.javamug;
 import org.bitbucket.javamug.source.DataSource;
 
 /**
- * Abstract class of {@link Entry <code>Entry</code>} class.
+ * Abstract class of {@link Entry Entry} class.
  * 
  * @author Haruaki Tamada
  */
@@ -27,8 +27,8 @@ public abstract class AbstractEntry implements Entry {
     /**
      * returns class name of this resource.
      * If this resource is not a class file, this method returns null.
-     * This method is available when {@link #getType <code>getType</code>} method
-     * returns {@link Entry.Type.CLASS_FILE <code>CLASS_FILE</code>} type.
+     * This method is available when {@link #getType getType} method
+     * returns {@link Entry.Type#CLASS_FILE CLASS_FILE} type.
      */
     @Override
     public String getClassName(){

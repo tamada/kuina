@@ -11,7 +11,7 @@ Requirements
 ------------
 
 * Runtime/Development Environment
-    * Java SE 7
+    * Java SE 8
 * Project Management
     * [Maven 3.x](http://maven.apache.org/)
 * Dependencies for Compilation
@@ -19,13 +19,19 @@ Requirements
 * Test Environment
     * [JUnit 4.11](http://www.junit.org/)
 
+If you use Java SE 7, please checkout branch ``v1.1''.
+
 Authors
 -------
 
- Author: Associate Professor, Haruaki Tamada (Ph.D) 
- Affiliation: Faculty of Computer Science and Engineering, Kyoto Sangyo University.
- E-mail: tamada_f@ke_cc.kyoto-su.ac.jp
- Web Page: http://bitbucket.org/htamada/javamug/
+* Author
+    * Associate Professor, Haruaki Tamada (Ph.D) 
+* Affiliation
+    * Faculty of Computer Science and Engineering, Kyoto Sangyo University.
+* E-mail
+    * tamada_f@ke_cc.kyoto-su.ac.jp
+* Web Page
+    * http://bitbucket.org/htamada/javamug/
 
 License
 -------

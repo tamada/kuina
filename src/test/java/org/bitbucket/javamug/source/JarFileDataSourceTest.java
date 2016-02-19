@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.bitbucket.javamug.Entry;
 import org.bitbucket.javamug.source.DataSource;
@@ -35,7 +37,7 @@ public class JarFileDataSourceTest {
         Entry entry2 = iterator.next();
         assertTrue(iterator.hasNext());
         Entry entry3 = iterator.next();
-        assertFalse(iterator.hasNext());
+        assertThat(iterator.hasNext(), is(false));
 
         assertThat(entry1.getResourcePath(), is("META-INF/MANIFEST.MF"));
         assertThat(entry1.getType(), is(Entry.Type.RESOURCE));
@@ -46,5 +48,18 @@ public class JarFileDataSourceTest {
 
         assertThat(entry3.getType(), is(Entry.Type.SOURCE_FILE));
         assertThat(entry3.getResourcePath(), is("hello/HelloWorld.java"));
+    }
+
+    @Test
+    public void testStream() throws Exception{
+        List<Entry> list = source.stream()
+            .filter(f -> f.getResourcePath().endsWith(".class"))
+            .collect(Collectors.toList());
+
+        Entry entry = list.get(0);
+        assertThat(list.size(), is(1));
+        assertThat(entry.getType(), is(Entry.Type.CLASS_FILE));
+        assertThat(entry.getClassName(), is("hello.HelloWorld"));
+        assertThat(entry.getResourcePath(), is("hello/HelloWorld.class"));
     }
 }

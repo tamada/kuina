@@ -25,7 +25,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -54,10 +54,10 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
+        <version>3.5.1</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
           <encoding>utf-8</encoding>
         </configuration>
       </plugin>
@@ -65,7 +65,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-scm-publish-plugin</artifactId>
-        <version>1.0-beta-2</version>
+        <version>1.1</version>
         <configuration>
           <pubScmUrl>scm:git:git@bitbucket.org:htamada/htamada.bitbucket.org.git</pubScmUrl>
         </configuration>
@@ -74,7 +74,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.4</version>
+        <version>3.5</version>
         <configuration>
           <inputEncoding>utf-8</inputEncoding>
           <outputEncoding>utf-8</outputEncoding>
@@ -92,12 +92,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.7</version>
+        <version>2.8.2</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
         <executions>
           <execution>
             <id>copy-dependencies</id>
@@ -116,7 +117,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.1</version>
+        <version>2.6</version>
         <configuration>
           <archive>
             <manifest>
@@ -131,7 +132,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
+        <version>3.0.0</version>
         <executions>
           <execution>
             <phase>install</phase>
@@ -145,13 +146,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.3.1</version>
+        <version>2.8.1</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>2.4.3</version>
+        <version>2.7</version>
         <configuration>
           <encoding>utf-8</encoding>
         </configuration>
@@ -160,16 +161,28 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.7.2</version>
+        <version>2.19.1</version>
         <configuration>
           <argLine>${jacocoArgs}</argLine>
         </configuration>
       </plugin>
 
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.3</version>
+        <configuration>
+          <locale>en</locale>
+          <charset>utf-8</charset>
+          <encoding>utf-8</encoding>
+          <docencoding>utf-8</docencoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.6.3.201306030806</version>
+        <version>0.7.6.201602180812</version>
         <executions>
           <execution>
             <id>prepare-agent</id>
@@ -190,7 +203,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.4.1</version>
+        <version>2.5.3</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
         </configuration>
@@ -203,13 +216,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.3.1</version>
+        <version>2.8.1</version>
       </plugin>
 
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.6.3.201306030806</version>
+        <version>0.7.6.201602180812</version>
       </plugin>
 <!--
       <plugin>
@@ -238,7 +251,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
-        <version>2.5.2</version>
+        <version>3.0.3</version>
         <configuration>
           <locale>en</locale>
           <sourceEncoding>utf-8</sourceEncoding>
@@ -248,12 +261,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.8</version>
+        <version>2.19.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.1</version>
+        <version>2.5</version>
         <configuration>
           <inputEncoding>utf-8</inputEncoding>
           <outputEncoding>utf-8</outputEncoding>
@@ -263,7 +276,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>2.10.3</version>
         <configuration>
           <locale>en</locale>
           <charset>utf-8</charset>

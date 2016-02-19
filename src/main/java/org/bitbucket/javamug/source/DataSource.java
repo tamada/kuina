@@ -1,12 +1,14 @@
 package org.bitbucket.javamug.source;
 
 import java.util.Iterator;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 import org.bitbucket.javamug.Entry;
 
 /**
  * This interface represents a source for reading classes.
- * Also, this class iterates {@link Entry <code>Entry</code>}
+ * Also, this class iterates {@link Entry Entry}
  * objects which shows entries of archive.
  * 
  * @author Haruaki Tamada
@@ -47,8 +49,16 @@ public interface DataSource extends Iterable<Entry> {
     String getBase();
 
     /**
-     * returns iterator for entries of this object.
-     * @return iterator for entries
+     * returns iterator of entries of this object.
+     * @return iterator of entries
      */
     Iterator<Entry> iterator();
+
+    /**
+     * returns stream of entries of this object.
+     * @return stream of entries 
+     */
+    default Stream<Entry> stream(){
+        return StreamSupport.stream(this.spliterator(), false);
+    }
 }
