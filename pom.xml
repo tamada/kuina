@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.bitbucket</groupId>
-  <artifactId>javamug</artifactId>
+  <groupId>com.github</groupId>
+  <artifactId>kunai</artifactId>
   <version>1.5-SNAPSHOT</version>
 
-  <name>JavaMug</name>
-  <url>https://bitbucket.org/htamada/javamug</url>
-  <description>Extracting/Storing class files from/to directory, and jar files.</description>
+  <name>KUNAI</name>
+  <url>https://github.com/tamada/kunai</url>
+  <description>Storing/Extracting class files from/to repositories, archives, and directories</description>
   <inceptionYear>2013</inceptionYear>
 
   <scm>
-    <connection>scm:git:ssh://git@bitbucket.org/htamada/javamug.git</connection>
-    <developerConnection>scm:git:ssh://git@bitbucket.org/htamada/javamug.git</developerConnection>
-    <url>https://bitbucket.org/htamada/javamug.git</url>
+    <connection>scm:git:https://github.com/tamada/kunai.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:tamada/kunai.git</developerConnection>
+    <url>https://github.com/tamada/kunai</url>
     <tag>HEAD</tag>
   </scm>
 
@@ -20,28 +20,15 @@
     <dependency>
       <groupId>org.ow2.asm</groupId>
       <artifactId>asm</artifactId>
-      <version>5.0.3</version>
+      <version>5.0.4</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <distributionManagement>
-    <repository>
-      <id>local.bitbucket</id>
-      <name>Local bitbucket maven repository</name>
-      <url>file:${basedir}/../htamada.bitbucket.org/maven</url>
-    </repository>
-    <site>
-      <id>local.bitbucket</id>
-      <name>Local javamug web site</name>
-      <url>file:${basedir}/../htamada.bitbucket.org/javamug</url>
-    </site>
-  </distributionManagement>
 
   <build>
     <resources>
@@ -54,10 +41,10 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
+        <version>3.5.1</version>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
           <encoding>utf-8</encoding>
         </configuration>
       </plugin>
@@ -65,7 +52,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-scm-publish-plugin</artifactId>
-        <version>1.0-beta-2</version>
+        <version>1.1</version>
         <configuration>
           <pubScmUrl>scm:git:git@bitbucket.org:htamada/htamada.bitbucket.org.git</pubScmUrl>
         </configuration>
@@ -74,13 +61,18 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.4</version>
+        <version>3.5</version>
         <configuration>
           <inputEncoding>utf-8</inputEncoding>
           <outputEncoding>utf-8</outputEncoding>
           <locales>en</locales>
         </configuration>
         <dependencies>
+         <dependency>
+            <groupId>org.apache.maven.doxia</groupId>
+            <artifactId>doxia-module-markdown</artifactId>
+            <version>1.7</version>
+          </dependency>
           <dependency>
             <groupId>com.github.stephenc.wagon</groupId>
             <artifactId>wagon-gitsite</artifactId>
@@ -92,12 +84,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.7</version>
+        <version>2.8.2</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
         <executions>
           <execution>
             <id>copy-dependencies</id>
@@ -116,7 +109,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>2.3.1</version>
+        <version>2.6</version>
         <configuration>
           <archive>
             <manifest>
@@ -131,7 +124,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
+        <version>3.0.0</version>
         <executions>
           <execution>
             <phase>install</phase>
@@ -145,13 +138,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.3.1</version>
+        <version>2.8.1</version>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>2.4.3</version>
+        <version>2.7</version>
         <configuration>
           <encoding>utf-8</encoding>
         </configuration>
@@ -160,16 +153,28 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.7.2</version>
+        <version>2.19.1</version>
         <configuration>
           <argLine>${jacocoArgs}</argLine>
         </configuration>
       </plugin>
 
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.3</version>
+        <configuration>
+          <locale>en</locale>
+          <charset>utf-8</charset>
+          <encoding>utf-8</encoding>
+          <docencoding>utf-8</docencoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.6.3.201306030806</version>
+        <version>0.7.6.201602180812</version>
         <executions>
           <execution>
             <id>prepare-agent</id>
@@ -190,7 +195,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.4.1</version>
+        <version>2.5.3</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
         </configuration>
@@ -203,13 +208,13 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>2.3.1</version>
+        <version>2.8.1</version>
       </plugin>
 
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.6.3.201306030806</version>
+        <version>0.7.6.201602180812</version>
       </plugin>
 <!--
       <plugin>
@@ -238,7 +243,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
-        <version>2.5.2</version>
+        <version>3.0.3</version>
         <configuration>
           <locale>en</locale>
           <sourceEncoding>utf-8</sourceEncoding>
@@ -248,12 +253,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.8</version>
+        <version>2.19.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.1</version>
+        <version>2.5</version>
         <configuration>
           <inputEncoding>utf-8</inputEncoding>
           <outputEncoding>utf-8</outputEncoding>
@@ -263,7 +268,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>2.10.3</version>
         <configuration>
           <locale>en</locale>
           <charset>utf-8</charset>

@@ -1,13 +1,10 @@
-KUNAI: Extracting/Storing class files from/to some archives
-===========================================================
-
-Overview
---------
-
-[![Build Status](https://travis-ci.org/tamada/kunai.svg)](https://travis-ci.org/tamada/kunai)
+KINAI: Overview
+===============
 
 KUNAI aims to support extracting and storing java class files
-from/to some archives.
+from/to some archives.  This product is utility library, therefore,
+using only the product do nothing.
+This product makes sense under used in other products.
 
 Features
 --------
@@ -23,6 +20,11 @@ Only reading and writing from/to the following archives.
 Requirements
 ------------
 
+ This tool requires the following libraries.  Put them into the
+directory which contains kunai-${project.version}.jar.
+
+### Development
+
 * Runtime/Development Environment
     * Java SE 8
 * Project Management
@@ -32,13 +34,19 @@ Requirements
 * Test Environment
     * [JUnit 4.12](http://www.junit.org/)
 
-If you use Java SE 7, please checkout branch ``v1.1''.
+Install
+-------
+
+ Simply run ```mvn package```, then maven compiles the project, runs
+unit test, and build project archive in ```target``` directory.  In
+first time for running maven, it requires much times to download
+dependent libraries from Internet.
 
 Contact
 -------
 
 * Author
-    * Associate Professor, Haruaki Tamada (Ph.D) 
+    * Associate Professor, Haruaki Tamada (Ph.D)
 * Affiliation
     * Faculty of Computer Science and Engineering, Kyoto Sangyo University.
 * E-mail
