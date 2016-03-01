@@ -1,10 +1,11 @@
 KUNAI: Extracting/Storing class files from/to some archives
 ===========================================================
 
+[![Build Status](https://travis-ci.org/tamada/kunai.svg)](https://travis-ci.org/tamada/kunai)
+[![codecov.io](https://codecov.io/github/tamada/kunai/coverage.svg?branch=master)](https://codecov.io/github/tamada/kunai?branch=master)
+
 Overview
 --------
-
-[![Build Status](https://travis-ci.org/tamada/kunai.svg)](https://travis-ci.org/tamada/kunai)
 
 KUNAI aims to support extracting and storing java class files
 from/to some archives.
@@ -45,6 +46,7 @@ Contact
     * tamada@users.noreply.github.com
 * Web Page
     * http://github.com/tamada/kunai
+    * http://tamada.github.com/kunai
 
 License
 -------
