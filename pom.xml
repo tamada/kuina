@@ -113,7 +113,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.bitbucket.javamug.Main</mainClass>
+              <mainClass>com.github.kunai.Main</mainClass>
               <addClasspath>true</addClasspath>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
             </manifest>
@@ -185,7 +185,7 @@
             <configuration>
               <propertyName>jacocoArgs</propertyName>
               <includes>
-                <include>org.bitbucket.javamug.*</include>
+                <include>com.github.kunai.*</include>
               </includes>
             </configuration>
           </execution>
