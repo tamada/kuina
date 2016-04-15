@@ -37,6 +37,8 @@
   </dependencies>
 
   <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -197,12 +199,6 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <propertyName>jacocoArgs</propertyName>
-          <includes>
-            <include>com.github.kunai.*</include>
-          </includes>
-        </configuration>
       </plugin>
 
       <plugin>

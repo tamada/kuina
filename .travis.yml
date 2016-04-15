@@ -3,8 +3,11 @@ language: java
 jdk:
     - oraclejdk8
 
+env:
+    - secure: "Jdx2s5/8akiq4VwySBKC7POHUPLg6RazfVKM5AsfiMGeN1cdNpYsP3nbPvd7GP+xJU/9wumWE5ciZfMO553xlqaeftAmoVxIJuA5fY6gTfKnvFYDLHRWrgKMFfEbFwzqytEd33vGDNOgFTU/UFRGHBxDIfNT0ieyCiAEFPrb0XFM2+hq7KEVxhyat0Ddg2PtMINpabyllgau2A5oeABfwsDnudxKtlzs31HzNfyPhcDhoq0wpy3c6m7m/8g7c1th6WxKaQudKloYouG/ghDKRi/LSxFTMfFs1EQIy0C2Ox6ASusP0Wu8ApQhVvyMdavD4VN/Vz812SDL5iENkuUpsDWpBxaBCFK+yi3I83YFdQdhVodYR0Lb6JAfVqdBWMbLtQ4ZtDmViLsg3z3/PzVeRLtYJ4Pin5Y4ERzYUruk5/ya/pLFQop0zGXPWhugNJmjaYWn/HWVr8iXb3+Il19jD6PDLPpeYHS9f/PbvDQWodkQv8GidrX92bNAha7dozfZ8BPmp6q3AjmyYcUqBOX/w+o2ozA9xNDIEs2y6xC/Gr5bfFDB5aKOst16SLsgo8Mnbkg1lf96zO5wAeyEvfWWqWj0sGXGrcTnvAjVPGAhA2DJfHipT9rEonW+piYB+ZxfkJE65bLjPsaK0q5QtguKRPmMpvLFSilsNNg8HeL419c="
+
 before_script:
-  - pip install --user codecov
+    - pip install --user codecov
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+    - codecov -t $CODECOV_UPLOAD_TOKEN
